@@ -178,6 +178,14 @@ h4 {
   background:rgba(51,137,142,1.00);
 
 }
+#timer{
+font-size: 7vh;
+text-align: center;
+color:rgba(249,240,9,1.00);text-shadow: 2px 2px 2px #440202,2px 2px 2px #440202,2px 2px 2px #440202,2px 2px 2px #440202; letter-spacing: 3px;
+word-spacing: 2px;
+font-weight: 700;
+	}
+
 </style>
 </head>
 <body style="  background-image:linear-gradient(to right,rgba(204,51,153,0.6),rgba(0,102,255,0.7),rgba(255,102,204,0.6)),url(bg.jpg); background-position: center; background-attachment: fixed; background-size: cover;">
@@ -195,7 +203,7 @@ h4 {
     <p class="bb" style="letter-spacing: 1px;">3rd & 4th January, 2020 , Mankar College, Mankar</p>
   </div>
   <div class="container-fluid">
-    <div class="row p-4 mx-auto d-flex text-center align-items-center justify-content-center" id="countdown">
+    <div class="row p-4 mx-auto d-flex text-center align-items-center justify-content-center" id="timer">
       <div class="col-md-3 p-3">
         <div class="col-md-10 col-sm-10 mx-auto" style=" border-bottom-left-radius: 5px; border-top-right-radius: 5px; color: rgb(254, 254, 255); font-weight: 700; font-size: 3.5vh; letter-spacing: 1px;  box-shadow:2px 2px 5px 2px #ffdbdb ; text-shadow: 1px 1px 2px #440202,1px 1px 2px #440202,1px 1px 2px #440202,1px 1px 2px #440202;
 ;" ><span style="color: rgb(254, 254, 255); font-weight: 700; font-size: 20px; letter-spacing: 2px;" id="day"></span><br>
@@ -268,29 +276,32 @@ h4 {
   </div>
 </footer>
 <script>
-        function countdown(){
-            var now=new Date();
-            var eventDate= new Date(2020,0,03);
-            var currentTime= now.getTime();
-            var eventTime= eventDate.getTime();
-            var remTime= eventTime - currentTime;
-            var s = Math.floor(remTime/1000);
-            var m = Math.floor(s/60);
-            var h = Math.floor(m/60);
-            var d = Math.floor(h/24);
-            
-            
-            h %=24;
-            m %=60;
-            s %=60;
-            
-            document.getElementById('day').innerHTML = d ;
-            document.getElementById('hr').innerHTML = h ;
-            document.getElementById('mint').innerHTML = m ;
-            document.getElementById('sec').innerHTML = s ;
-             setTimeout(countdown,1000);
-        }
-        countdown();
+      <script>
+var countDownDate = new Date("Jan 03, 2020 10:00:00").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("day").innerHTML = days; 
+	 document.getElementById("hr").innerHTML = hours; 
+	 document.getElementById("mint").innerHTML = minutes; 
+	 document.getElementById("sec").innerHTML = seconds; 
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "Started Socail 2020";
+  }
+}, 1000);
+        
+    </script>
         
     </script>
     
